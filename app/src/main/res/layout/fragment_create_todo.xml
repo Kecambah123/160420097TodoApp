@@ -10,14 +10,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btnAdd"
+        <RadioGroup
+            android:id="@+id/radioGroupPriority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/inputLayoutNotes"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+            <RadioButton
+                android:id="@+id/radioHigh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:tag="3"
+                android:text="High Priority" />
+
+            <RadioButton
+                android:id="@+id/radioMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="2"
+                android:text="Medium Priority" />
+
+            <RadioButton
+                android:id="@+id/radioLow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="1"
+                android:text="Low Priority" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
             android:text="Add Todo"
             app:layout_constraintEnd_toEndOf="@+id/inputLayoutNotes"
-            app:layout_constraintTop_toBottomOf="@+id/inputLayoutNotes" />
+            app:layout_constraintStart_toStartOf="@+id/inputLayoutNotes"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupPriority" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputLayoutTitle"
@@ -29,7 +60,7 @@
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/txtJudulTodo">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtTitle"
@@ -56,7 +87,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/txtJudulTodo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -65,5 +96,15 @@
             android:textSize="36sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Priority"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/inputLayoutNotes"
+            app:layout_constraintTop_toBottomOf="@+id/inputLayoutNotes" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
