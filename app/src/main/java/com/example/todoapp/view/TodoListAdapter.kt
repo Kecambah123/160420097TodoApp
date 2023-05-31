@@ -5,10 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp.R
 import com.example.todoapp.model.Todo
+import com.example.todoapp.util.buildDb
+import com.example.todoapp.viewmodel.DetailTodoViewModel
+import com.example.todoapp.viewmodel.ListTodoViewModel
+import kotlinx.coroutines.launch
 
 class TodoListAdapter(val todoList:ArrayList<Todo>,val adapterOnClick : (Todo) -> Unit)
     : RecyclerView.Adapter<TodoListAdapter.TodoViewHolder>() {

@@ -30,6 +30,7 @@ class EditTodoFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(DetailTodoViewModel::class.java)
         val uuid = EditTodoFragmentArgs.fromBundle(requireArguments()).uuid
+        val is_done = 0
         viewModel.fetch(uuid)
 
         btnAdd.setOnClickListener {
@@ -39,7 +40,7 @@ class EditTodoFragment : Fragment() {
             val radio = view.findViewById<RadioButton>(radioGroupPriority.checkedRadioButtonId)
             viewModel.update(
                 txtTitle.text.toString(), txtNotes.text.toString(),
-                radio.tag.toString().toInt(), uuid
+                radio.tag.toString().toInt(), is_done, uuid
             )
             Toast.makeText(view.context, "Todo updated", Toast.LENGTH_SHORT).show()
             Navigation.findNavController(it).popBackStack()
